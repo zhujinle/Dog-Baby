@@ -10,11 +10,20 @@ public class newsDao {
 
     public Integer newNews(news inputNews) {
         try {
-            String sql = "INSERT INTO java.news (title, content, date, type, updateDate, img, authorUID)" +
-                    "VALUES ('?', '?', '?', 1, null, '?', '?')";
-            template.update(sql, inputNews.getTitle(), inputNews.getContent(),inputNews.getDate(),inputNews.getImg(),inputNews.getAuthorUID());
+
+            String sql = "INSERT INTO java.news (title, author, content, date, type, updateDate, img, authorUID)" +
+                    "VALUES (?, ?,?, ?, 1, DEFAULT, ?, ?)";
+            if(inputNews.getImg() == null) {
+                sql = "INSERT INTO java.news (title, author, content, date, type, updateDate, img, authorUID)" +
+                        "VALUES (?, ?,?, ?, 1, DEFAULT, DEFAULT, ?)";
+                template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getDate(), inputNews.getAuthorUID());
+            }
+            else {
+                template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getDate(), inputNews.getImg(), inputNews.getAuthorUID());
+            }
             return 1;
         } catch (DataAccessException e) {
+            System.out.println(e);
             return 0;
         }
     }
