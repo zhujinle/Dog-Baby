@@ -12,15 +12,15 @@ public class newsDao {
     public Integer newNews(news inputNews) {
         try {
 
-            String sql = "INSERT INTO java.news (title, author, content, date, type, updateDate, img, authorUID)" +
-                    "VALUES (?, ?,?, ?, 1, DEFAULT, ?, ?)";
+            String sql = "INSERT INTO java.news (title, author, content, date, type, updateDate, img, authorUID, summary)" +
+                    "VALUES (?, ?,?, ?, 1, DEFAULT, ?, ?,?)";
             if(inputNews.getImg() == null) {
-                sql = "INSERT INTO java.news (title, author, content, date, type, updateDate, img, authorUID)" +
-                        "VALUES (?, ?,?, ?, 1, DEFAULT, DEFAULT, ?)";
-                template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getDate(), inputNews.getAuthorUID());
+                sql = "INSERT INTO java.news (title, author, content, date, type, updateDate, img, authorUID,summary)" +
+                        "VALUES (?, ?,?, ?, 1, DEFAULT, DEFAULT, ?,?)";
+                template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getDate(), inputNews.getAuthorUID(),inputNews.getSummary());
             }
             else {
-                template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getDate(), inputNews.getImg(), inputNews.getAuthorUID());
+                template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getDate(), inputNews.getImg(), inputNews.getAuthorUID(),inputNews.getSummary());
             }
             return 1;
         } catch (DataAccessException e) {
@@ -36,9 +36,9 @@ public class newsDao {
 //                    "WHERE t.nid = ?;";
 //            template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getUpdateDate(),inputNews.getImg(), inputNews.getAuthorUID(), inputNews.getType());
             String sql = "UPDATE news " +
-                    "set news.title = ?, news.author = ?, news.content = ?, news.updateDate = ?, news.img = ? ,news.authorUID = ?, news.type = ?" +
+                    "set news.title = ?, news.author = ?, news.content = ?, news.updateDate = ?, news.img = ? ,news.authorUID = ?, news.type = ?, news.summary = ?" +
                     "WHERE news.nid = ?;";
-            template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getUpdateDate(),inputNews.getImg(),inputNews.getAuthorUID(),inputNews.getType(),inputNews.getNid());
+            template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getUpdateDate(),inputNews.getImg(),inputNews.getAuthorUID(),inputNews.getType(),inputNews.getSummary(),inputNews.getNid());
             return 1;
         } catch (DataAccessException e) {
             System.out.println(e);
