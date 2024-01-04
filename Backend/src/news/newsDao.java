@@ -27,6 +27,17 @@ public class newsDao {
             return 0;
         }
     }
+    public Integer modifyNews(news inputNews) {
+        try {
 
+            String sql = "UPDATE java.news t set t.title = ?, t.author = ?, t.content = ?, t.updateDate = ?, t.img = ?, t.authorUID = ?" +
+                    "WHERE t.nid = ?;";
+            template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getImg(), inputNews.getAuthorUID(), inputNews.getNid());
+            return 1;
+        } catch (DataAccessException e) {
+            System.out.println(e);
+            return 0;
+        }
+    }
 
 }

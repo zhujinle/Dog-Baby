@@ -12,6 +12,7 @@ import java.util.Objects;
 public class getmenus extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setHeader("Access-Control-Allow-Origin", "*");
         request.setCharacterEncoding("utf-8");
         String token = request.getParameter("token");
         UserDao dao = new UserDao();
