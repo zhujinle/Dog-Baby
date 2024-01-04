@@ -49,12 +49,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "uid='" + uid + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", token='" + token + '\'' +
-                ", membertype='" + membertype + '\'' +
-                '}';
+        return "\"User\":{" +
+                "\"uid\":\"" + uid + '\"' +
+                ", \"username\":\"" + username + '\"' +
+//                ", \"password\":\"" + password + '\"' +
+//                ", \"token\":\"" + token + '\"' +
+                ", \"membertype\":\"" + membertype + '\"' + '}';
     }
 }
