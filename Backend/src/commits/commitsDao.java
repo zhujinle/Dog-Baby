@@ -23,4 +23,22 @@ public class commitsDao {
             return null;
         }
     }
+
+    public Integer addCommit(commits doCommit){
+        try {
+            String sql = "insert into commits (fromuser, tonewsid, commit, time) values (?, ?, ?, ?)";
+            return template.update(sql, doCommit.getFromuser(), doCommit.getTonewsid(), doCommit.getCommit(), doCommit.getTime());
+        } catch (DataAccessException e) {
+            return 0;
+        }
+    }
+
+    public Integer deleteCommit(String cid){
+        try {
+            String sql = "delete from commits where cid = ?";
+            return template.update(sql, cid);
+        } catch (DataAccessException e) {
+            return 0;
+        }
+    }
 }

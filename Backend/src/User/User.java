@@ -49,7 +49,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "\"User\":{" +
+        return "{" +
                 "\"uid\":\"" + uid + '\"' +
                 ", \"username\":\"" + username + '\"' +
 //                ", \"password\":\"" + password + '\"' +

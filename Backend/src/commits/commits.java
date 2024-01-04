@@ -3,7 +3,7 @@ package commits;
 public class commits {
     private String cid;
     private String fromuser;
-    private String tonewid;
+    private String tonewsid;
     private String commit;
     private String time;
 
@@ -23,12 +23,12 @@ public class commits {
         this.fromuser = fromuser;
     }
 
-    public String getTonewid() {
-        return tonewid;
+    public String getTonewsid() {
+        return tonewsid;
     }
 
-    public void setTonewid(String tonewid) {
-        this.tonewid = tonewid;
+    public void setTonewsid(String tonewid) {
+        this.tonewsid = tonewid;
     }
 
     public String getCommit() {
@@ -49,10 +49,10 @@ public class commits {
 
     @Override
     public String toString() {
-        return  "\"commits\":{" +
+        return  "{" +
                 "\"cid\":\"" + cid + "\"," +
                 "\"fromuser\":\"" + fromuser + "\"," +
-                "\"tonewid\":\"" + tonewid + "\"," +
+                "\"tonewid\":\"" + tonewsid + "\"," +
                 "\"commit='\":\"" + commit + "\"," +
                 "\"time\":\"" + time + '\"' +
                 '}';
