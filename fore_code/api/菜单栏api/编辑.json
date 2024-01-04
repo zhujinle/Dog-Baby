@@ -1,4 +1,4 @@
-审核:{
+编辑:{
 	"statusCode":200,
 	"msg":"",
 	"data": [
@@ -10,7 +10,13 @@
 				{
 					"id":101,
 					"authName":"全部新闻",
-					"path":"views",
+					"path":"view",
+					"children":[]
+				},
+				{
+					"id":102,
+					"authName":"写新闻",
+					"path":"write",
 					"children":[]
 				}
 			]
@@ -37,14 +43,28 @@
 		{
 			"id":300,
 			"authName":"评论",
-			"path":"comments",
-			"children":[]
+			"path":Null,
+			"children":[
+				{
+					"id": 301,
+					"authName": "评论列表",
+					"path":"commentList",
+					"children":[]
+				}
+			]
 		},
 		{
 			"id":400,
-			"authName":"个人信息",
-			"path":"myInfo",
-			"children":[]
+			"authName":"用户管理",
+			"path":Null,
+			"children":[
+				{
+					"id":402,
+					"authName": "修改用户信息",
+					"path":"modifyUser",
+					"children":[]
+				},
+			]
 		}
 	]
 }

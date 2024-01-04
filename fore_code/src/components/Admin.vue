@@ -11,35 +11,27 @@
 			<!-- 侧边栏区域 -->
 			<el-aside :width="isCollapse ? '64px' : '200px' ">
 				<div class="toggle-button" @click="toggleCollapse">|||</div>
-				<!-- 侧边栏菜单区域 -->
-				<el-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" unique-opened :collapse="isCollapse"
-				:collapse-transition="false" router>
-					<!-- API(v-for循环读取菜单数据，从menulist中读取每一条一级菜单的数据，在此命名为item) -->
-					<!-- 一级菜单 -->
-					<el-submenu :index="item.id + '' " v-for="item in menulist" :key="item.id" v-if="item.id < 300">
-						<template slot="title">
-							<i :class="iconsObj[item.id]"></i>
-							<span>{{item.authName}}</span>
-						</template>
-						
-						<!-- 二级菜单(利用v-for从menulist中读取上述一级菜单item下的二级菜单item.children，并命名为subItem) -->
-						<el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id">
+					<!-- 侧边栏菜单区域 -->
+					<el-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" unique-opened :collapse="isCollapse"
+					:collapse-transition="false" router>
+						<!-- API(v-for循环读取菜单数据，从menulist中读取每一条一级菜单的数据，在此命名为item) -->
+						<!-- 一级菜单 -->
+						<el-submenu :index="item.id + '' " v-for="item in menulist" :key="item.id">
 							<template slot="title">
-								<i class="el-icon-menu"></i>
-								<span>{{subItem.authName}}</span>
+								<i :class="iconsObj[item.id]"></i>
+								<span>{{item.authName}}</span>
 							</template>
-						</el-menu-item>	
-					</el-submenu>
-				
-					<el-menu-item :index="'/' + item.path" v-for="item in menulist" :key="item.id" v-if="item.id > 300">
-						<template slot="title">
-							<i :class="iconsObj[item.id]"></i>
-							<span>{{item.authName}}</span>
-						</template>
-					</el-menu-item>
-				</el-menu>
-			</el-aside>	
-			
+							
+							<!-- 二级菜单(利用v-for从menulist中读取上述一级菜单item下的二级菜单item.children，并命名为subItem) -->
+							<el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id">
+								<template slot="title">
+									<i class="el-icon-menu"></i>
+									<span>{{subItem.authName}}</span>
+								</template>
+							</el-menu-item>	
+						</el-submenu>
+					</el-menu>
+			</el-aside>
 			<!-- 右侧内容主体-->
 			<el-main>
 				<!-- 路由占位符 -->
@@ -60,8 +52,7 @@
 				        '100': 'iconfont icon-xinwen',
 				        '200': 'iconfont icon-a-shenhe1',
 				        '300': 'iconfont icon-pinglun',
-				        '400': 'iconfont icon-ziliao',
-				        '500': 'iconfont icon-yonghuguanli'
+				        '400': 'iconfont icon-yonghuguanli',
 				      },
 				// 是否折叠
 				isCollapse: false

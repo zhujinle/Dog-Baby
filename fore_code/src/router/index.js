@@ -2,13 +2,21 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '../components/Login.vue'
 import Admin from '../components/Admin.vue'
+// 新闻
 import View from '../components/News/View.vue'
 import Write from '../components/News/Write.vue'
+import NewsManage from '../components/News/NewsManage.vue'
+// 审核
 import Done from '../components/Audit/Done.vue'
 import Pending from '../components/Audit/Pending.vue'
-import Comments from '../components/Else/Comments.vue'
-import MyInfo from '../components/Else/MyInfo.vue'
-import Manage from '../components/Else/Manage.vue'
+// 评论
+import CommentList from '../components/Comments/CommentList.vue'
+import CommentManage from '../components/Comments/CommentManage.vue'
+// 用户管理
+import UserList from '../components/Manage/UserList.vue'
+import ModifyUser from '../components/Manage/ModifyUser.vue'
+
+
 import index from '../components/index/index.vue'
 
 
@@ -27,13 +35,18 @@ const router = new Router({
 			children: [
 				{path: '/view', component: View}, 
 				{path: '/write', component: Write},
+				{path: '/newsManage', component: NewsManage},
+				
 				{path: '/done', component: Done},
 				{path: '/pending', component: Pending},
-				{path: '/comments', component: Comments},
-				{path: '/myInfo', component: MyInfo},
-				{path: '/manage', component: Manage},
+				
+				{path: '/commentList', component: CommentList},
+				{path: '/commentManage', component: CommentManage},
+				
+				{path: '/userList', component: UserList},
+				{path: '/modifyUser', component: ModifyUser}
 			]
-		}		
+		}
 	]
 })
 

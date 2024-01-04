@@ -1,0 +1,19 @@
+编辑:{
+	"statusCode":200,
+	"msg":"",
+	"data":[
+		{
+			"id":400,
+			"authName":"用户管理",
+			"path":Null,
+			"children":[
+				{
+					"id":402,
+					"authName": "修改用户信息",
+					"path":"modifyUser",
+					"children":[]
+				},
+			]
+		}
+	]
+}
