@@ -37,6 +37,12 @@
 					"authName":"待审核",
 					"path":"pending",
 					"children":[]
+				},
+				{
+					"id":203,
+					"authName":"推送审核",
+					"path":"push",
+					"children":[]
 				}
 			]
 		},

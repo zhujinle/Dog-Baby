@@ -9,6 +9,7 @@ import NewsManage from '../components/News/NewsManage.vue'
 // 审核
 import Done from '../components/Audit/Done.vue'
 import Pending from '../components/Audit/Pending.vue'
+import PushReview from '../components/Audit/PushReview.vue'
 // 评论
 import CommentList from '../components/Comments/CommentList.vue'
 import CommentManage from '../components/Comments/CommentManage.vue'
@@ -39,6 +40,7 @@ const router = new Router({
 				
 				{path: '/done', component: Done},
 				{path: '/pending', component: Pending},
+				{path: '/push', component: PushReview},
 				
 				{path: '/commentList', component: CommentList},
 				{path: '/commentManage', component: CommentManage},
