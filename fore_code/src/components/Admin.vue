@@ -37,8 +37,6 @@
 							<span>{{item.authName}}</span>
 						</template>
 					</el-menu-item>
-					
-					
 				</el-menu>
 			</el-aside>	
 			

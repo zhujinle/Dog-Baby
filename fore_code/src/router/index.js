@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '../components/Login.vue'
 import Admin from '../components/Admin.vue'
-import Views from '../components/News/Views.vue'
+import View from '../components/News/View.vue'
 import Write from '../components/News/Write.vue'
 import Done from '../components/Audit/Done.vue'
 import Pending from '../components/Audit/Pending.vue'
@@ -22,9 +22,9 @@ const router = new Router({
 		{ 
 			path: '/admin', 
 			component: Admin, 
-			redirect: '/views',
+			redirect: '/view',
 			children: [
-				{path: '/views', component: Views}, 
+				{path: '/view', component: View}, 
 				{path: '/write', component: Write},
 				{path: '/done', component: Done},
 				{path: '/pending', component: Pending},
