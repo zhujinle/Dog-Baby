@@ -31,12 +31,17 @@ public class newsDao {
     public Integer modifyNews(news inputNews) {
         try {
 
-            String sql = "UPDATE java.news t set t.title = ?, t.author = ?, t.content = ?, t.updateDate = ?, t.img = ?, t.authorUID = ?" +
-                    "WHERE t.nid = ?;";
-            template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getImg(), inputNews.getAuthorUID(), inputNews.getNid());
+//            String sql = "UPDATE news t " +
+//                    "set t.title = ?, t.author = ?, t.content = ?, t.updateDate = ?, t.img = ?, t.authorUID = ?, t.type = ? " +
+//                    "WHERE t.nid = ?;";
+//            template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getUpdateDate(),inputNews.getImg(), inputNews.getAuthorUID(), inputNews.getType());
+            String sql = "UPDATE news " +
+                    "set news.title = ?, news.author = ?, news.content = ?, news.updateDate = ?, news.img = ? ,news.authorUID = ?, news.type = ?" +
+                    "WHERE news.nid = ?;";
+            template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getUpdateDate(),inputNews.getImg(),inputNews.getAuthorUID(),inputNews.getType(),inputNews.getNid());
             return 1;
         } catch (DataAccessException e) {
-
+            System.out.println(e);
             return 0;
         }
     }
@@ -58,6 +63,18 @@ public class newsDao {
             return 1;
         } catch (DataAccessException e) {
             return 0;
+        }
+    }
+    public String getNewsList(String uid) {
+        try {
+            if(uid.equals("0")) {
+                String sql = "select * from news order by date desc";
+                return template.query(sql, new BeanPropertyRowMapper<news>(news.class)).toString();
+            }
+            String sql = "select * from news where authorUID = ? order by date desc";
+            return template.query(sql, new BeanPropertyRowMapper<news>(news.class), uid).toString();
+        } catch (DataAccessException e) {
+            return null;
         }
     }
 

@@ -25,14 +25,13 @@ public class modifyNews extends HttpServlet {
         User authorUser = userdao.fidsuser(token);
         String author = authorUser.getUsername();
         String authoruid = authorUser.getUid();
-        news inputNews = new news();
+        news inputNews = dao.getNews(nid);
         inputNews.setTitle(title);
         inputNews.setContent(content);
-        inputNews.setDate(date);
+        inputNews.setUpdateDate(date);
         inputNews.setAuthor(author);
         inputNews.setAuthorUID(authoruid);
         inputNews.setImg(img);
-        inputNews.setNid(nid);
         Integer result = dao.modifyNews(inputNews);
         response.setContentType("application/json");
         if (result == 1) {
