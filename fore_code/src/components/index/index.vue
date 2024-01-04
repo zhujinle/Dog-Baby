@@ -97,7 +97,7 @@ export default {
   margin-top: 15px; /* 根据需要调整上边距的大小 */
 }
 .category-content {
-  margin: 0 10px; /* 10像素的水平外边距，上下外边距保持为0 */
+  margin: 0 50px; /* 10像素的水平外边距，上下外边距保持为0 */
   padding: 10px 0; /* 10像素的垂直内边距，左右内边距保持为0 */
 }
 
@@ -127,9 +127,10 @@ export default {
     cursor: pointer;
 }
 .first-news-thumbnail {
-    align-items: center; /* 垂直居中 */
-  flex: 1; /* 占据剩余空间 */
-  height: auto; /* 高度自适应，保持纵横比 */
+    width: 50%; /* 占据剩余空间 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
 }
 .news-thumbnail img {
     width: 50%;
@@ -139,9 +140,7 @@ export default {
 
 .news-content {
     width: 50%;
-    margin-left: 10px;
-    flex: 1; /* 占据剩余空间 */
-    padding-left: 150px; /* 为文字内容留出一些间距，根据需要调整 */
+    padding-left: 300px; /* 为文字内容留出一些间距，根据需要调整 */
 }
 
 .news-title {
@@ -182,14 +181,14 @@ export default {
 
 .introduce {
     position: absolute;
-    top: 37%;
+    top: 20%;
     z-index: 10;
     width: 100%;
     color: #fff;
     text-shadow: 2px 2px 2px #666;
     cursor: default;
     font-weight: 350;
-    font-size:40px;
+    font-size:80px;
     font-family: -apple-system,BlinkMacSystemFont,opensans,Optima,"Microsoft Yahei",sans-serif;
     line-height: 1.8;
     overflow-x: hidden;
@@ -197,7 +196,7 @@ export default {
 }
 
 .mate{
-    font-size:15px;
+    font-size:32px;
 }
 .el-carousel img {
     width:100%;
@@ -207,6 +206,17 @@ export default {
     padding: 20px;
 }
 .carouselText{
-    padding: 50px;
+    padding: 150px;
 }
+.carouselItemTitle {
+  font-size: 64px; /* 根据需要调整字体大小 */
+  font-weight: bold; /* 设置字体加粗 */
+}
+.carouselItemSummary {
+  font-size: 24px; /* 根据需要调整字体大小 */
+  width: 120%; /* 根据需要调整文本框宽度 */
+  /* 其他样式属性如 font-weight, font-style, font-family 等可以根据需要添加或修改 */
+}
+
+
 </style>
