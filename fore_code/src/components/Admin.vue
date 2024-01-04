@@ -32,7 +32,7 @@
 					</el-submenu>
 					
 					<el-submenu>
-						<el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id">
+						<el-menu-item :index="item.id + '' " v-for="item in menulist" :key="item.id">
 							<template slot="title">
 								<i class="el-icon-menu"></i>
 								<span>{{subItem.authName}}</span>
