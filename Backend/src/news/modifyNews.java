@@ -20,6 +20,7 @@ public class modifyNews extends HttpServlet {
         String date = request.getParameter("date");
         String img = request.getParameter("img");
         String nid = request.getParameter("nid");
+        String summary = request.getParameter("summary");
         newsDao dao = new newsDao();
         UserDao userdao = new UserDao();
         User authorUser = userdao.fidsuser(token);
@@ -32,6 +33,7 @@ public class modifyNews extends HttpServlet {
         inputNews.setAuthor(author);
         inputNews.setAuthorUID(authoruid);
         inputNews.setImg(img);
+        inputNews.setSummary(summary);
         Integer result = dao.modifyNews(inputNews);
         response.setContentType("application/json");
         if (result == 1) {

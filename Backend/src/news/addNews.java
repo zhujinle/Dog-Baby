@@ -21,6 +21,7 @@ public class addNews extends HttpServlet {
         String token = req.getParameter("token");
         String date = req.getParameter("date");
         String img = req.getParameter("img");
+        String summary = req.getParameter("summary");
         newsDao dao = new newsDao();
         UserDao userdao = new UserDao();
         User authorUser = userdao.fidsuser(token);
@@ -33,6 +34,7 @@ public class addNews extends HttpServlet {
         inputNews.setAuthor(author);
         inputNews.setAuthorUID(authoruid);
         inputNews.setImg(img);
+        inputNews.setSummary(summary);
         Integer result = dao.newNews(inputNews);
         resp.setContentType("application/json");
         if (result == 1) {

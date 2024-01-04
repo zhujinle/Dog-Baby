@@ -10,6 +10,15 @@ public class news {
     private String updateDate;
     private String img;
     private String authorUID;
+    private String summary;
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
     public String getNid() {
         return nid;
@@ -93,6 +102,7 @@ public class news {
                 "\"type\":\"" + type + "\"," +
                 "\"updateDate\":\"" + updateDate + "\"," +
                 "\"img\":\"" + img + "\"," +
+                "\"summary\":\"" + summary + "\"," +
                 "\"authorUID\":\"" + authorUID + "\"}";
     }
 }

@@ -9,13 +9,14 @@ import Pending from '../components/Audit/Pending.vue'
 import Comments from '../components/Else/Comments.vue'
 import MyInfo from '../components/Else/MyInfo.vue'
 import Manage from '../components/Else/Manage.vue'
+import index from '../components/index/index.vue'
 
 Vue.use(Router)
 
 const router = new Router({
 	routes: [
 	// 重定向网页，如下意思即为启动APP时，默认将网址定向到login页面
-		{ path: '/', redirect:'Login'},
+		{ path: '/', component:index},
     // 当用户在浏览器中访问/login'这个地址的时候，用component属性来展示Login组件
 		{ path: '/login', component: Login },
 		{ 
@@ -29,7 +30,7 @@ const router = new Router({
 				{path: '/pending', component: Pending},
 				{path: '/comments', component: Comments},
 				{path: '/myInfo', component: MyInfo},
-				{path: '/manage', component: Manage}
+				{path: '/manage', component: Manage},
 			]
 		}		
 	]
