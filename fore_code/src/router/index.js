@@ -10,6 +10,7 @@ import Comments from '../components/Else/Comments.vue'
 import MyInfo from '../components/Else/MyInfo.vue'
 import Manage from '../components/Else/Manage.vue'
 import index from '../components/index/index.vue'
+import detail from '../components/News/detail.vue'
 
 
 Vue.use(Router)
@@ -33,7 +34,15 @@ const router = new Router({
 				{path: '/myInfo', component: MyInfo},
 				{path: '/manage', component: Manage},
 			]
-		}		
+		},
+		{
+			path: '/detail/:id/',
+			name: 'detail',
+			component: detail,
+			meta: {
+				title: '详情'
+			}
+		}	
 	]
 })
 

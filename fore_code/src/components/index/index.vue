@@ -84,12 +84,29 @@ export default {
 </script>
 
 <style scoped>
+.category-title {
+    font-size: 36px; /* 根据需要调整字体大小 */
+  font-weight: bold; /* 设置字体加粗 */
+  padding-left: 50px; /* 根据需要调整向右移动的距离 */
+}
+
+.category-news-title {
+  line-height: 0; /* 根据需要调整行高的倍数 */
+  font-size: 30px; /* 设置字体大小为30像素，根据需求调整 */
+  font-weight: bold; /* 设置字体加粗 */
+  margin-top: 15px; /* 根据需要调整上边距的大小 */
+}
+.category-content {
+  margin: 0 10px; /* 10像素的水平外边距，上下外边距保持为0 */
+  padding: 10px 0; /* 10像素的垂直内边距，左右内边距保持为0 */
+}
+
 .news-container {
     margin: 0 auto;
     padding: 20px;
 }
 .news-title {
-    font-size: 24px;
+    font-size: 200px;
     font-weight: bold;
 }
 
@@ -104,12 +121,16 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 0px;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
 }
-
+.first-news-thumbnail {
+    align-items: center; /* 垂直居中 */
+  flex: 1; /* 占据剩余空间 */
+  height: auto; /* 高度自适应，保持纵横比 */
+}
 .news-thumbnail img {
     width: 50%;
     height: auto;
@@ -119,16 +140,18 @@ export default {
 .news-content {
     width: 50%;
     margin-left: 10px;
+    flex: 1; /* 占据剩余空间 */
+    padding-left: 150px; /* 为文字内容留出一些间距，根据需要调整 */
 }
 
 .news-title {
-    font-size: 18px;
+    font-size: 36px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .news-summary {
-    font-size: 14px;
+    font-size: 20px;
     color: #666;
     margin-bottom: 10px;
 }
@@ -145,7 +168,7 @@ export default {
 }
 
 .category-thumbnail img {
-    width: 30%;
+    width: 100px;
     height: auto;
     border-radius: 5px;
 }

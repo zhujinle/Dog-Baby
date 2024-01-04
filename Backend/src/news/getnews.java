@@ -20,8 +20,8 @@ public class getnews extends HttpServlet {
         news gotNews = new news();
         gotNews = dao.getNews(nid);
         response.setContentType("application/json");
-        if (gotNews != null && Objects.equals(gotNews.getType(), "5")) {
-            response.getWriter().write("{\"statusCode\": 200, \"msg\": \"获取成功\", "+ gotNews + "}");
+        if (gotNews != null ) {
+            response.getWriter().write("{\"statusCode\": 200, \"msg\": \"获取成功\", "+ "\"news\" :"  +gotNews + "}");
         } else {
             response.getWriter().write("{\"statusCode\": 403, \"msg\": \"获取失败\"}");
         }

@@ -11,7 +11,10 @@
     "axios": "^1.6.3",
     "core-js": "^3.35.0",
     "element-ui": "^2.15.14",
+    "markdown-it-vue": "^1.1.7",
+    "mavon-editor": "^2.10.4",
     "vue": "^2.6.14",
+    "vue-markdown": "^2.2.4",
     "vue-router": "^3.6.5"
   },
   "devDependencies": {

@@ -103,10 +103,10 @@ public class newsDao {
     public String getNewsListByType2(String type, String uid) {
         try {
             if(uid != null){
-                String sql = "select * from news where (type = 3 OR type = 4) and authorUID = ? order by date desc";
+                String sql = "select * from news where (type = 3 OR type = 4 OR type = 5) and authorUID = ? order by date desc";
                 return template.query(sql, new BeanPropertyRowMapper<news>(news.class), uid).toString();
             }
-            String sql = "select * from news where (type = 3 OR type = 4)order by date desc";
+            String sql = "select * from news where (type = 3 OR type = 4 OR type = 5)order by date desc";
             return template.query(sql, new BeanPropertyRowMapper<news>(news.class)).toString();
         } catch (DataAccessException e) {
             return null;
