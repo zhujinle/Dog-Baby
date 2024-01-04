@@ -11,6 +11,7 @@ import MyInfo from '../components/Else/MyInfo.vue'
 import Manage from '../components/Else/Manage.vue'
 import index from '../components/index/index.vue'
 
+
 Vue.use(Router)
 
 const router = new Router({
