@@ -25,12 +25,16 @@ public class reviewNews extends HttpServlet {
         User reviewUser = userdao.fidsuser(token);
         news reviewNews = newsdao.getNews(nid);
         String reviewer = reviewUser.getUsername();
-        Integer result = newsdao.reviewNews(nid, reviewer , status);
         response.setContentType("application/json");
-        if (!(Objects.equals(status, "4") || Objects.equals(status, "3"))|| reviewNews == null || reviewUser == null) {
+        if (!(Objects.equals(status, "0") || Objects.equals(status, "1"))|| reviewNews == null || reviewUser == null) {
             response.getWriter().write("{\"statusCode\": 403, \"msg\": \"±£¥Ê…Û∫À ß∞‹\"}");
             return;
         }
+        if(Objects.equals(status, "0"))
+            reviewNews.setType("4");
+        if(Objects.equals(status, "1"))
+            reviewNews.setType("3");
+        Integer result = newsdao.reviewNews(nid, reviewer , reviewNews.getType());
         if (result == 1) {
             response.getWriter().write("{\"statusCode\": 200, \"msg\": \"±£¥Ê…Û∫À≥…π¶\"}");
         } else {

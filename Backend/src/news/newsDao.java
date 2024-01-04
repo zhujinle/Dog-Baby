@@ -78,4 +78,13 @@ public class newsDao {
         }
     }
 
+    public Integer deleteNews(String nid) {
+        try {
+            String sql = "DELETE FROM news WHERE nid = ?";
+            template.update(sql, nid);
+            return 1;
+        } catch (DataAccessException e) {
+            return 0;
+        }
+    }
 }
