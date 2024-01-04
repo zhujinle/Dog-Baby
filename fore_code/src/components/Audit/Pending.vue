@@ -17,7 +17,7 @@
         </el-col>
       </el-row>
 
-      <!-- 订单列表 -->
+      <!-- 审核列表 -->
       <template>
         <el-table :data="newsList" stripe style="width: 100%">
             <el-table-column prop="nid" label="新闻ID" width="70"></el-table-column>
@@ -38,7 +38,7 @@
                     </el-tooltip>
                     <!-- 查看 -->
                     <el-tooltip effect="dark" content="查看详细" placement="top" :enterable="false">
-                        <el-button type="warning" icon="el-icon-zoom-in" size="mini" @click="deleteuser(scope.row)"></el-button>
+                        <el-button type="warning" icon="el-icon-zoom-in" size="mini" @click="info(scope.row)"></el-button>
                     </el-tooltip>
                 </template>
             </el-table-column>
@@ -101,6 +101,9 @@ export default {
 			}
 			this.$message.success('保存成功！')
 			this.getNewsList()
+		},
+        async info (newsinfo) {
+			window.open('#/detail/'+ newsinfo.nid, '_blank');
 		},
     }
 };

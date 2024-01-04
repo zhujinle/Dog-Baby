@@ -84,12 +84,29 @@ export default {
 </script>
 
 <style scoped>
+.category-title {
+    font-size: 36px; /* 根据需要调整字体大小 */
+  font-weight: bold; /* 设置字体加粗 */
+  padding-left: 50px; /* 根据需要调整向右移动的距离 */
+}
+
+.category-news-title {
+  line-height: 0; /* 根据需要调整行高的倍数 */
+  font-size: 30px; /* 设置字体大小为30像素，根据需求调整 */
+  font-weight: bold; /* 设置字体加粗 */
+  margin-top: 15px; /* 根据需要调整上边距的大小 */
+}
+.category-content {
+  margin: 0 50px; /* 10像素的水平外边距，上下外边距保持为0 */
+  padding: 10px 0; /* 10像素的垂直内边距，左右内边距保持为0 */
+}
+
 .news-container {
     margin: 0 auto;
     padding: 20px;
 }
 .news-title {
-    font-size: 24px;
+    font-size: 200px;
     font-weight: bold;
 }
 
@@ -104,12 +121,17 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 0px;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
 }
-
+.first-news-thumbnail {
+    width: 50%; /* 占据剩余空间 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
 .news-thumbnail img {
     width: 50%;
     height: auto;
@@ -118,17 +140,17 @@ export default {
 
 .news-content {
     width: 50%;
-    margin-left: 10px;
+    padding-left: 300px; /* 为文字内容留出一些间距，根据需要调整 */
 }
 
 .news-title {
-    font-size: 18px;
+    font-size: 36px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .news-summary {
-    font-size: 14px;
+    font-size: 20px;
     color: #666;
     margin-bottom: 10px;
 }
@@ -145,7 +167,7 @@ export default {
 }
 
 .category-thumbnail img {
-    width: 30%;
+    width: 100px;
     height: auto;
     border-radius: 5px;
 }
@@ -159,14 +181,14 @@ export default {
 
 .introduce {
     position: absolute;
-    top: 37%;
+    top: 20%;
     z-index: 10;
     width: 100%;
     color: #fff;
     text-shadow: 2px 2px 2px #666;
     cursor: default;
     font-weight: 350;
-    font-size:40px;
+    font-size:80px;
     font-family: -apple-system,BlinkMacSystemFont,opensans,Optima,"Microsoft Yahei",sans-serif;
     line-height: 1.8;
     overflow-x: hidden;
@@ -174,7 +196,7 @@ export default {
 }
 
 .mate{
-    font-size:15px;
+    font-size:32px;
 }
 .el-carousel img {
     width:100%;
@@ -184,6 +206,17 @@ export default {
     padding: 20px;
 }
 .carouselText{
-    padding: 50px;
+    padding: 150px;
 }
+.carouselItemTitle {
+  font-size: 64px; /* 根据需要调整字体大小 */
+  font-weight: bold; /* 设置字体加粗 */
+}
+.carouselItemSummary {
+  font-size: 24px; /* 根据需要调整字体大小 */
+  width: 120%; /* 根据需要调整文本框宽度 */
+  /* 其他样式属性如 font-weight, font-style, font-family 等可以根据需要添加或修改 */
+}
+
+
 </style>
