@@ -87,4 +87,29 @@ public class newsDao {
             return 0;
         }
     }
+
+    public String getNewsListByType(String type, String uid) {
+        try {
+            if(uid != null){
+                String sql = "select * from news where (type = ? )and authorUID = ? order by date desc";
+                return template.query(sql, new BeanPropertyRowMapper<news>(news.class), type, uid).toString();
+            }
+            String sql = "select * from news where (type = ? )order by date desc";
+            return template.query(sql, new BeanPropertyRowMapper<news>(news.class), type).toString();
+        } catch (DataAccessException e) {
+            return null;
+        }
+    }
+    public String getNewsListByType2(String type, String uid) {
+        try {
+            if(uid != null){
+                String sql = "select * from news where (type = 3 OR type = 4) and authorUID = ? order by date desc";
+                return template.query(sql, new BeanPropertyRowMapper<news>(news.class), uid).toString();
+            }
+            String sql = "select * from news where (type = 3 OR type = 4)order by date desc";
+            return template.query(sql, new BeanPropertyRowMapper<news>(news.class)).toString();
+        } catch (DataAccessException e) {
+            return null;
+        }
+    }
 }
