@@ -49,7 +49,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 export default {
     data() {
         return {
@@ -105,21 +104,6 @@ export default {
 		},
     }
 };
-=======
-	export default{
-		data() {
-			return{
-				
-			}
-		},
-		created() {
-			
-		},
-		methods:{
-			
-		}
-	}
->>>>>>> 91e96ecc7dc73674c72c839bb24e7abce79e9611
 </script>
 
 <style>
