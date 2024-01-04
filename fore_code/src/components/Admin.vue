@@ -16,7 +16,7 @@
 				:collapse-transition="false" router>
 					<!-- API(v-for循环读取菜单数据，从menulist中读取每一条一级菜单的数据，在此命名为item) -->
 					<!-- 一级菜单 -->
-					<el-submenu :index="item.id + '' " v-for="item in menulist" :key="item.id">
+					<el-submenu :index="item.id + '' " v-for="item in menulist" :key="item.id" v-if="item.id < 300">
 						<template slot="title">
 							<i :class="iconsObj[item.id]"></i>
 							<span>{{item.authName}}</span>
@@ -30,21 +30,19 @@
 							</template>
 						</el-menu-item>	
 					</el-submenu>
-					
-					<el-submenu>
-						<el-menu-item :index="item.id + '' " v-for="item in menulist" :key="item.id">
-							<template slot="title">
-								<i class="el-icon-menu"></i>
-								<span>{{subItem.authName}}</span>
-							</template>
-						</el-menu-item>	
-					</el-submenu>
+				
+					<el-menu-item :index="'/' + item.path" v-for="item in menulist" :key="item.id" v-if="item.id > 300">
+						<template slot="title">
+							<i :class="iconsObj[item.id]"></i>
+							<span>{{item.authName}}</span>
+						</template>
+					</el-menu-item>
 					
 					
 				</el-menu>
 			</el-aside>	
 			
-			<!-- 右侧内容主体
+			<!-- 右侧内容主体-->
 			<el-main>
 				<!-- 路由占位符 -->
 				<router-view></router-view>
