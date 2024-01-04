@@ -1,5 +1,6 @@
 package news;
 
+import User.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -35,7 +36,27 @@ public class newsDao {
             template.update(sql, inputNews.getTitle(), inputNews.getAuthor(), inputNews.getContent(), inputNews.getImg(), inputNews.getAuthorUID(), inputNews.getNid());
             return 1;
         } catch (DataAccessException e) {
-            System.out.println(e);
+
+            return 0;
+        }
+    }
+
+    public news getNews(String nid){
+        try {
+            String sql = "select * from news where nid = ?";
+            news returnnew= template.queryForObject(sql, new BeanPropertyRowMapper<news>(news.class), nid);
+            return returnnew;
+        } catch (DataAccessException e) {
+            return null;
+        }
+    }
+    public Integer reviewNews(String nid,String reviewer,String status){
+        try {
+            String sql = "UPDATE java.news t set t.type = ?, t.reviewer = ?" +
+                    "WHERE t.nid = ?;";
+            template.update(sql, status, reviewer,nid);
+            return 1;
+        } catch (DataAccessException e) {
             return 0;
         }
     }

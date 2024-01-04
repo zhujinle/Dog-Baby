@@ -1,6 +1,9 @@
 package news;
 
 import java.io.*;
+import java.util.Objects;
+
+import User.*;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,14 +14,27 @@ import jakarta.servlet.http.HttpServletResponse;
 public class reviewNews extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        request.setCharacterEncoding("utf-8");
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setHeader("Access-Control-Allow-Origin", "*");
         request.setCharacterEncoding("utf-8");
+        String nid = request.getParameter("nid");
+        String token = request.getParameter("token");
+        String status = request.getParameter("status");
+        newsDao newsdao = new newsDao();
+        UserDao userdao = new UserDao();
+        User reviewUser = userdao.fidsuser(token);
+        news reviewNews = newsdao.getNews(nid);
+        String reviewer = reviewUser.getUsername();
+        Integer result = newsdao.reviewNews(nid, reviewer , status);
+        response.setContentType("application/json");
+        if (!(Objects.equals(status, "4") || Objects.equals(status, "3"))|| reviewNews == null || reviewUser == null) {
+            response.getWriter().write("{\"statusCode\": 403, \"msg\": \"±£¥Ê…Û∫À ß∞‹\"}");
+            return;
+        }
+        if (result == 1) {
+            response.getWriter().write("{\"statusCode\": 200, \"msg\": \"±£¥Ê…Û∫À≥…π¶\"}");
+        } else {
+            response.getWriter().write("{\"statusCode\": 403, \"msg\": \"±£¥Ê…Û∫À ß∞‹\"}");
+        }
     }
 }
