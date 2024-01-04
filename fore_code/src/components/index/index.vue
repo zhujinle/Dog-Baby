@@ -8,8 +8,8 @@
                 </div>
             </div>
         </div>
-        <el-main>
-            <el-carousel height="300px" interval="10000">
+        <el-main style="width: 75%;margin: 0 auto ;">
+            <el-carousel height="600px" interval="10000">
                 <el-carousel-item v-for="item in newsList" :key="item.nid" :name="item.title">
                     <el-row>
                         <el-col :span="12" >
