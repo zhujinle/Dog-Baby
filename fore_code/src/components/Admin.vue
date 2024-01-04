@@ -13,65 +13,41 @@
 				<div class="toggle-button" @click="toggleCollapse">|||</div>
 				<!-- 侧边栏菜单区域 -->
 				<el-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" unique-opened :collapse="isCollapse"
-				:collapse-transition="false">
-					<!-- 对上API接口后，一级菜单和二级菜单各进行一个for循环来自动获取菜单数据（另外还需注意span中的authName是否与API中的一致） -->
+				:collapse-transition="false" router>
+					<!-- API(v-for循环读取菜单数据，从menulist中读取每一条一级菜单的数据，在此命名为item) -->
 					<!-- 一级菜单 -->
-					<!-- <el-submenu index="item.id + '' " v-for="item in menulist" :key="item.id">
+					<el-submenu :index="item.id + '' " v-for="item in menulist" :key="item.id">
 						<template slot="title">
-							<i class="el-icon-location"></i>
+							<i :class="iconsObj[item.id]"></i>
 							<span>{{item.authName}}</span>
-						</template> -->
+						</template>
 						
-							<!-- 二级菜单 -->
-						<!-- <el-menu-item index="subItem.id + '' " v-for="subItem in item.children" :key="subItem.id">
+						<!-- 二级菜单(利用v-for从menulist中读取上述一级菜单item下的二级菜单item.children，并命名为subItem) -->
+						<el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id">
 							<template slot="title">
 								<i class="el-icon-menu"></i>
 								<span>{{subItem.authName}}</span>
 							</template>
-						</el-menu-item>	 -->
-						
-						
-					<!-- 一级菜单 -->
-					<el-submenu index="1">
-						<template slot="title">
-							<i class="el-icon-location"></i>
-							<span>新闻</span>
-						</template>
-							
-						<!-- 二级菜单 -->
-						<el-menu-item index="1-1">
+						</el-menu-item>	
+					</el-submenu>
+					
+					<el-submenu>
+						<el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id">
 							<template slot="title">
 								<i class="el-icon-menu"></i>
-								<span>我的文章</span>
-							</template>
-						</el-menu-item>			
-						
-						<el-menu-item index="1-2">
-							<template slot="title">
-								<i class="el-icon-menu"></i>
-								<span>写文章</span>
+								<span>{{subItem.authName}}</span>
 							</template>
 						</el-menu-item>	
 					</el-submenu>
-								
-					<el-submenu index="2">
-						<template slot="title">
-							<i class="el-icon-location"></i>
-							<span>评论</span>
-						</template>			
-					</el-submenu>
 					
-					<el-submenu index="3">
-						<template slot="title">
-							<i class="el-icon-location"></i>
-							<span>个人资料</span>
-						</template>
-					</el-submenu>
+					
 				</el-menu>
-			</el-aside>
-			<!-- 右侧内容主体 -->
+			</el-aside>	
+			
+			<!-- 右侧内容主体
 			<el-main>
-				
+				<!-- 路由占位符 -->
+				<router-view></router-view>
 			</el-main>
 		</el-container>
 	</el-container>
@@ -83,6 +59,14 @@
 			return {
 				// 左侧菜单数据
 				menulist: [],
+				// 左侧菜单图标
+				iconsObj: {
+				        '100': 'iconfont icon-xinwen',
+				        '200': 'iconfont icon-a-shenhe1',
+				        '300': 'iconfont icon-pinglun',
+				        '400': 'iconfont icon-ziliao',
+				        '500': 'iconfont icon-yonghuguanli'
+				      },
 				// 是否折叠
 				isCollapse: false
 			}
@@ -98,13 +82,11 @@
 			
 			// 获取所有菜单（'menus'路径需根据API调整）
 			async getMenuList(){
-				const {data: res} = await this.$http.get('getmenus')
+				const params = new URLSearchParams()
+				params.append('token', window.sessionStorage.getItem('token'))
+				const res = await this.$http.post('getmenus', params)
 				if(res.data.statusCode !== 200) return this.$message.error(res.data.msg)
-
-				window.sessionStorage.setItem('token', res.data.token)	
-				
-				this.menulist = res.data
-				console.log(res)
+				this.menulist = res.data.data
 			},
 			// 点击按钮，展开/折叠菜单
 			toggleCollapse(){
@@ -148,5 +130,9 @@
 		color: #fff;
 		text-align: center;
 		letter-spacing: 0.2em;
+	}
+	.iconfont{
+		margin-right: 10px;
+		font-size: 20px;
 	}
 </style>

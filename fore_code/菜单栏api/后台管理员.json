@@ -1,0 +1,56 @@
+后台管理员:{
+	"statusCode":200,
+	"msg":"",
+	"data": [
+		{
+			"id":100,
+			"authName":"新闻",
+			"path":Null,
+			"children": [
+				{
+					"id":101,
+					"authName":"全部新闻",
+					"path":"view",
+					"children":[]
+				}
+			]
+		},
+		{
+			"id":200,
+			"authName":"审核",
+			"path":Null,
+			"children": [
+				{
+					"id":201,
+					"authName":"已审核",
+					"path":"done",
+					"children":[]
+				},
+				{
+					"id":202,
+					"authName":"待审核",
+					"path":"pending",
+					"children":[]
+				}
+			]
+		},
+		{
+			"id":300,
+			"authName":"评论",
+			"path":"comments",
+			"children":[]
+		},
+		{
+			"id":400,
+			"authName":"个人信息",
+			"path":"myInfo",
+			"children":[]
+		},
+		{
+			"id":500,
+			"authName":"用户管理",
+			"path":"manage",
+			"children":[]
+		}
+	]
+}

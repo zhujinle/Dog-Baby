@@ -1,0 +1,58 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1985023",
+      "name": "评论",
+      "font_class": "pinglun",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "5065635",
+      "name": "资料",
+      "font_class": "ziliao",
+      "unicode": "e7ba",
+      "unicode_decimal": 59322
+    },
+    {
+      "icon_id": "22366292",
+      "name": "user-management",
+      "font_class": "yonghuguanli",
+      "unicode": "e9dd",
+      "unicode_decimal": 59869
+    },
+    {
+      "icon_id": "34803950",
+      "name": "新闻",
+      "font_class": "xinwen",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "35108665",
+      "name": "新闻14",
+      "font_class": "xinwen14",
+      "unicode": "ea4d",
+      "unicode_decimal": 59981
+    },
+    {
+      "icon_id": "35108667",
+      "name": "新闻13",
+      "font_class": "xinwen13",
+      "unicode": "ea4e",
+      "unicode_decimal": 59982
+    },
+    {
+      "icon_id": "35158159",
+      "name": "审核 (1)",
+      "font_class": "a-shenhe1",
+      "unicode": "ead5",
+      "unicode_decimal": 60117
+    }
+  ]
+}

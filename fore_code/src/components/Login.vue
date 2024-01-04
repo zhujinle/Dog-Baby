@@ -58,16 +58,18 @@ export default {
 		Login(){
 			this.$refs.LoginFormRef.validate(async valid =>{
 				if (!valid) return
+						// 定义一个params变量
 				        const params = new URLSearchParams()
-						// 根据API调整(已调，待测试)
+						// 为params扩展内容，名称分别为username和password，它们对应的值分别为this.LoginForm.Username和this.LoginForm.Password
 				        params.append('username', this.LoginForm.Username)
 				        params.append('password', this.LoginForm.Password)
+						// res为response的简写，本行代码将params变量通过post方式传给服务器。
 				        const res = await this.$http.post('Login', params)
-				        console.log(res)
-				        if (res.data.statusCode !== 200) return this.$message.error('res.data.msg')
-				        console.log(res)
+						// 在本项目中服务器收到username和password后会返回statusCode（状态码）、msg（提示信息）和token
+						// 服务器返回的statusCode、msg、token都存在res.data中，现读取它，若statusCode不为200，则跳出错误警告的弹窗,警告内容为msg的值
+				        if (res.data.statusCode !== 200) return this.$message.error(res.data.msg)
 						
-						// 保存并上传token（根据API调整————已调，待测试）
+						// 保存服务器返回的token
 				        window.sessionStorage.setItem('token', res.data.token)
 				        this.$message.success('登录成功！')
 						
