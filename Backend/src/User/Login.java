@@ -46,7 +46,6 @@ public class Login extends HttpServlet {
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             dao.setToken(user);
-            System.out.println(dao.setToken(user));
             data.put("token", token);
         }
         Gson gson = new Gson();
