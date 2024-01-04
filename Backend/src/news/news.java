@@ -85,16 +85,14 @@ public class news {
 
     @Override
     public String toString() {
-        return "news{" +
-                "nid='" + nid + '\'' +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", content='" + content + '\'' +
-                ", date='" + date + '\'' +
-                ", type='" + type + '\'' +
-                ", updateDate='" + updateDate + '\'' +
-                ", img='" + img + '\'' +
-                ", authorUID='" + authorUID + '\'' +
-                '}';
+        return  "{\"nid\":\"" + nid + "\"," +
+                "\"title\":\"" + title + "\"," +
+                "\"author\":\"" + author + "\"," +
+                "\"content\":\"" + content + "\"," +
+                "\"date\":\"" + date + "\"," +
+                "\"type\":\"" + type + "\"," +
+                "\"updateDate\":\"" + updateDate + "\"," +
+                "\"img\":\"" + img + "\"," +
+                "\"authorUID\":\"" + authorUID + "\"}";
     }
 }
