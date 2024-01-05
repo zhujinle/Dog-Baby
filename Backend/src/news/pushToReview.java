@@ -37,7 +37,7 @@ public class pushToReview extends HttpServlet {
         }
         UserDao userdao = new UserDao();
         User douser = userdao.fidsuser(token);
-        if (!Objects.equals(doNews.getAuthorUID(), douser.getUid())){
+        if (!(Objects.equals(doNews.getAuthorUID(), douser.getUid())||Objects.equals(douser.getMembertype(), "1"))){
             response.setContentType("application/json");
             response.getWriter().write("{\"statusCode\": 403, \"msg\": \"È¨ÏÞ²»×ã\"}");
             return;

@@ -65,7 +65,7 @@
 				this.inputNID = '';
       		},
 			async info (newsinfo) {
-				window.open('#/detail/'+ newsinfo.nid, '_blank');
+				window.open('#/detail/'+ newsinfo.tonewid, '_blank');
 			},
 		}
 	}

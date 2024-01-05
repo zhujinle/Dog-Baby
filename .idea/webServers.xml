@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2b075256-28d9-49a6-b06e-96327f64ab8f" name="1.117.52.175" url="http://dogbaby.peterpig.top">
+        <fileTransfer accessType="SFTP" host="1.117.52.175" port="22" sshConfigId="61e8ebe0-55ef-49a8-a9f8-8eba742d5e1c" sshConfig="root@1.117.52.175:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

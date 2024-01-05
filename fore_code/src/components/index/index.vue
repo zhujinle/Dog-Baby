@@ -9,7 +9,7 @@
             </div>
         </div>
         <el-main style="width: 75%;margin: 0 auto ;">
-            <el-carousel height="600px" interval="10000">
+            <el-carousel height="500px" interval="10000">
                 <el-carousel-item v-for="item in newsList" :key="item.nid" :name="item.title">
                     <el-row>
                         <el-col :span="12" >
@@ -72,7 +72,7 @@ export default {
         async getNewsList() {
             // Make an API call to get the news list
             // Replace 'getNewsList' with the actual API endpoint
-            const res = await this.$http.get('getNewsList?uid=0')
+            const res = await this.$http.get('getNewsList?type=5')
             if (res.data.statusCode !== 200) return this.$message.error('网络错误！')
             console.log(res.data.data)
             this.newsList = res.data.data
@@ -207,7 +207,7 @@ export default {
     padding: 20px;
 }
 .carouselText{
-    padding: 150px;
+    padding: 15px;
 }
 .carouselItemTitle {
   font-size: 64px; /* 根据需要调整字体大小 */

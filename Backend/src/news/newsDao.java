@@ -77,7 +77,14 @@ public class newsDao {
             return null;
         }
     }
-
+    public String getNewsListByType3(String type) {
+        try {
+            String sql = "select * from news where type = ? order by date desc";
+            return template.query(sql, new BeanPropertyRowMapper<news>(news.class), type).toString();
+        } catch (DataAccessException e) {
+            return null;
+        }
+    }
     public Integer deleteNews(String nid) {
         try {
             String sql = "DELETE FROM news WHERE nid = ?";

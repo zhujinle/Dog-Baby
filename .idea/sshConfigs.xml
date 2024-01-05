@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="1.117.52.175" id="61e8ebe0-55ef-49a8-a9f8-8eba742d5e1c" keyPath="C:\Users\PeterPig\Downloads\1.117.52 (1).175_id_ed25519" port="22" nameFormat="DESCRIPTIVE" username="root" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

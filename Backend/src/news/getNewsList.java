@@ -18,6 +18,14 @@ public class getNewsList extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         String uid = request.getParameter("uid");
         String token = request.getParameter("token");
+        String type = request.getParameter("type");
+        if(type!=null){
+            newsDao dao = new newsDao();
+            String result = dao.getNewsListByType3(type);
+            response.setContentType("text/json; charset=utf-8");
+            response.getWriter().write("{\"statusCode\": 200, \"msg\": \"∂¡»°≥…π¶\","+"\"data\":"+result+"}");
+            return;
+        }
         if(token==null){
             newsDao dao = new newsDao();
             String result = dao.getNewsList(uid);
