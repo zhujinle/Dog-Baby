@@ -12,7 +12,7 @@
 			<el-aside :width="isCollapse ? '64px' : '200px' ">
 				<div class="toggle-button" @click="toggleCollapse">|||</div>
 					<!-- 侧边栏菜单区域 -->
-					<el-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" unique-opened :collapse="isCollapse"
+					<el-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  :collapse="isCollapse"
 					:collapse-transition="false" router>
 						<!-- API(v-for循环读取菜单数据，从menulist中读取每一条一级菜单的数据，在此命名为item) -->
 						<!-- 一级菜单 -->
@@ -99,7 +99,6 @@
 	.el-header img{
 		padding-left: 10px;
 		height: 80px;
-		width: 80px;
 	}
 	.el-aside{
 		background-color: #545c64;

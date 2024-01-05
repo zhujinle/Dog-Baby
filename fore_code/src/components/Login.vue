@@ -84,7 +84,7 @@ export default {
 
 <style lang="less" scoped>
 	.login_container{
-		background-color: #434343;
+		background-image: url('../assets/图片1.png');
 		height: 100%;
 	}
 	.login_box{

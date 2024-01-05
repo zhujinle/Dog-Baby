@@ -1,82 +1,52 @@
-审核:{
-	"statusCode":200,
-	"msg":"",
-	"data": [
-		{
-			"id":100,
-			"authName":"新闻",
-			"path":Null,
-			"children": [
-				{
-					"id":101,
-					"authName":"全部新闻",
-					"path":"views",
-					"children":[]
-				},
-				{
-					"id":103,
-					"authName":"新闻管理",
-					"path":"newsManage",
-					"children":[]
-				}
-			]
-		},
-		{
-			"id":200,
-			"authName":"审核",
-			"path":Null,
-			"children": [
-				{
-					"id":201,
-					"authName":"已审核",
-					"path":"done",
-					"children":[]
-				},
-				{
-					"id":202,
-					"authName":"待审核",
-					"path":"pending",
-					"children":[]
-				},
-				{
-					"id":203,
-					"authName":"推送审核",
-					"path":"push",
-					"children":[]
-				}
-			]
-		},
-		{
-			"id":300,
-			"authName":"评论",
-			"path":Null,
-			"children":[
-				{
-					"id": 301,
-					"authName": "评论列表",
-					"path":"commentList",
-					"children":[]
-				},
-				{
-					"id": 302,
-					"authName": "评论管理",
-					"path":"commentManage",
-					"children":[]
-				}
-			]
-		},
-		{
-			"id":400,
-			"authName":"用户管理",
-			"path":Null,
-			"children":[
-				{
-					"id":402,
-					"authName": "修改用户信息",
-					"path":"modifyUser",
-					"children":[]
-				},
-			]
-		}
-	]
+{
+    "statusCode": 200,
+    "msg": "",
+    "data": [
+        {
+            "id": 200,
+            "authName": "审核",
+            "path": null,
+            "children": [
+                {
+                    "id": 201,
+                    "authName": "已审核",
+                    "path": "done",
+                    "children": [
+                        
+                    ]
+                },
+                {
+                    "id": 202,
+                    "authName": "待审核",
+                    "path": "pending",
+                    "children": [
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 300,
+            "authName": "评论",
+            "path": null,
+            "children": [
+                {
+                    "id": 301,
+                    "authName": "评论列表",
+                    "path": "commentList",
+                    "children": [
+                        
+                    ]
+                },
+                {
+                    "id": 302,
+                    "authName": "评论管理",
+                    "path": "commentManage",
+                    "children": [
+                        
+                    ]
+                }
+            ]
+        }
+    ]
 }
