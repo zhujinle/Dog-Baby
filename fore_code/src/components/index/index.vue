@@ -3,8 +3,8 @@
         <div class="news-header">
             <div class="content text-center" style="background-image: url(https://s2.loli.net/2024/01/04/4ZM5H2JSQ8leKNf.png);">
                 <div class="introduce animated fadeInUp">
-                    <div class="title">PeterPig's Blog</div>
-                    <div class="mate">PeterPig的后花园</div>
+                    <div class="title">Dog-Baby</div>
+                    <div class="mate">好好学习，天天向上</div>
                 </div>
             </div>
         </div>
@@ -52,6 +52,9 @@
                 </ul>
             </div>
         </el-main>
+        <el-footer>
+            <div class="text-center">Dog-Baby ©2024 Created by PeterPig&zzx&zcy with ❤</div>
+        </el-footer>
     </div>
 </template>
 
@@ -75,9 +78,7 @@ export default {
             this.newsList = res.data.data
         },
         goToNews(news) {
-            // Redirect to the news page
-            // Replace 'newsPage' with the actual news page route
-            this.$router.push({ name: 'newsPage', params: { id: news.id } });
+            window.open('#/detail/'+ news.nid, '_blank');
         }
     }
 };
@@ -217,6 +218,8 @@ export default {
   width: 120%; /* 根据需要调整文本框宽度 */
   /* 其他样式属性如 font-weight, font-style, font-family 等可以根据需要添加或修改 */
 }
-
+.text-center{
+    text-align: center!important;
+}
 
 </style>

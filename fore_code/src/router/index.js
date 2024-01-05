@@ -19,6 +19,9 @@ import ModifyUser from '../components/Manage/ModifyUser.vue'
 
 
 import index from '../components/index/index.vue'
+import detail from '../components/News/detail.vue'
+
+import addUser from '../components/Manage/addUser.vue'
 
 
 Vue.use(Router)
@@ -46,8 +49,17 @@ const router = new Router({
 				{path: '/commentManage', component: CommentManage},
 				
 				{path: '/userList', component: UserList},
-				{path: '/modifyUser', component: ModifyUser}
+				{path: '/modifyUser', component: ModifyUser},
+				{path: '/addUser', component: addUser},
 			]
+		},
+		{
+			path: '/detail/:id/',
+			name: 'detail',
+			component: detail,
+			meta: {
+				title: '详情'
+			}
 		}
 	]
 })

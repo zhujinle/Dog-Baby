@@ -53,7 +53,7 @@ public class commits {
                 "\"cid\":\"" + cid + "\"," +
                 "\"fromuser\":\"" + fromuser + "\"," +
                 "\"tonewid\":\"" + tonewsid + "\"," +
-                "\"commit='\":\"" + commit + "\"," +
+                "\"commit\":\"" + commit + "\"," +
                 "\"time\":\"" + time + '\"' +
                 '}';
     }

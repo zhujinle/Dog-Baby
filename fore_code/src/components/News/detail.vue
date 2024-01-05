@@ -3,8 +3,8 @@
         <div class="news-header">
             <div class="content text-center" style="background-image: url(https://s2.loli.net/2024/01/04/4ZM5H2JSQ8leKNf.png);">
                 <div class="introduce animated fadeInUp">
-                    <div class="title">PeterPig's Blog</div>
-                    <div class="mate">PeterPig的后花园</div>
+                    <div class="title">Dog-Baby</div>
+                    <div class="mate">好好学习，天天向上</div>
                 </div>
             </div>
         </div>
@@ -20,6 +20,45 @@
             <markdown :source=markdown style="margin: 90px;"></markdown>
 
         </div>
+        <!-- 评论 -->
+		<el-card class="box-card">
+            <!-- 评论列表 -->
+			<template>
+				<el-table :data="commetList" stripe style="width: 100%">
+					<el-table-column prop="cid" label="评论ID" width="70"></el-table-column>
+					<el-table-column prop="tonewid" label="新闻ID" width="70"></el-table-column>
+					<el-table-column prop="fromuser" label="评论人" width="360"></el-table-column>
+					<el-table-column prop="commit" label="评论内容" ></el-table-column>
+					<el-table-column prop="time" label="评论时间" width="230"></el-table-column>
+				</el-table>
+			</template>
+			<span>添加评论</span>
+			<el-form ref="AddFormRef" :model="AddForm">
+					<el-form-item label="用户名" prop="fromuser">
+						<el-input v-model="AddForm.fromuser" type="fromuser" prefix-icon="el-icon-edit"></el-input>
+					</el-form-item>
+					<el-form-item label="内容" prop="content">
+						<el-input v-model="AddForm.commit" type="commit" prefix-icon="el-icon-link"></el-input>
+					</el-form-item>
+					<el-form-item label="创建时间" prop="date">
+						<el-date-picker
+							v-model="AddForm.date1"
+							align="right"
+							type="date"
+							placeholder="选择日期"
+							value-format="yyyy-MM-dd HH:mm:ss"
+							:picker-options="pickerOptions">
+						</el-date-picker>
+					</el-form-item>
+					<el-form-item >
+						<el-button type="info" @click="ResetAddForm">重置</el-button>
+						<el-button type="primary" @click="AddCommits">确 定</el-button>
+					</el-form-item>
+			</el-form>
+		</el-card>
+        <el-footer>
+            <div class="text-center">Dog-Baby ©2024 Created by PeterPig&zzx&zcy with ❤</div>
+        </el-footer>
 	</div>
 </template>
 
@@ -32,7 +71,38 @@
         components: { Markdown },
 		data() {
 			return{
-				markdown: "## 正在加载中，如果长时间未响应请刷新。。。"
+                commetList:[],
+				markdown: "## 正在加载中，如果长时间未响应请刷新。。。",
+                AddForm: {
+					fromuser: '',
+					content: '',
+					date1: '',
+				},
+                pickerOptions: {
+					disabledDate(time) {
+						return time.getTime() > Date.now();
+					},
+					shortcuts: [{
+						text: '今天',
+						onClick(picker) {
+						picker.$emit('pick', new Date());
+						}
+					}, {
+						text: '昨天',
+						onClick(picker) {
+						const date = new Date();
+						date.setTime(date.getTime() - 3600 * 1000 * 24);
+						picker.$emit('pick', date);
+						}
+					}, {
+						text: '一周前',
+						onClick(picker) {
+						const date = new Date();
+						date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+						picker.$emit('pick', date);
+						}
+					}]
+				}
 			}
 		},
 		created() {
@@ -57,7 +127,33 @@
                 axios.get(res.data.news.content).then((response) => {
                     this.markdown = response.data;
                 });
-			}
+                this.getCommonList()
+			},
+            async getCommonList() {
+				// Make an API call to get the news list
+				// Replace 'getNewsList' with the actual API endpoint
+                let id = this.$route.params.id
+				const res = await this.$http.get('listCommits?tonewsid='+id)
+				if (res.data.statusCode !== 200) return this.$message.error('网络错误！')
+				console.log(res.data.data)
+				this.commetList = res.data.data
+      		},
+            async AddCommits () {
+                const params = new URLSearchParams()
+                let id = this.$route.params.id
+                params.append('tonewid', id)
+                params.append('fromuser', this.AddForm.fromuser)
+                params.append('commit', this.AddForm.commit)
+                params.append('time', this.AddForm.date1)
+                const res = await this.$http.post('addCommit', params)
+                if (res.data.statusCode !== 200) return this.$message.error('添加失败')
+                this.$message.success('添加成功！')
+                this.getCommonList()
+            },
+            ResetAddForm () {
+                this.$refs.AddFormRef.resetFields()
+            },
+
 		}
 	}
 	
@@ -70,6 +166,10 @@
     background-position: center center;
     background-size: cover;
     width: 100%;
+}
+.box-card{
+    margin-top: 20px;
+    margin: 90px;
 }
 
 .introduce {
@@ -90,5 +190,8 @@
 
 .mate{
     font-size:15px;
+}
+.text-center{
+    text-align: center!important;
 }
 </style>
