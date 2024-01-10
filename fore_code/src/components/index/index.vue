@@ -3,7 +3,7 @@
         <div class="news-header">
             <div class="content text-center" style="background-image: url(https://s2.loli.net/2024/01/04/4ZM5H2JSQ8leKNf.png);">
                 <div class="introduce animated fadeInUp">
-                    <div class="title">Dog-Baby</div>
+                    <div class="title">Dog-Baby新闻</div>
                     <div class="mate">好好学习，天天向上</div>
                 </div>
             </div>
@@ -210,7 +210,7 @@ export default {
     padding: 15px;
 }
 .carouselItemTitle {
-  font-size: 64px; /* 根据需要调整字体大小 */
+  font-size: 32px; /* 根据需要调整字体大小 */
   font-weight: bold; /* 设置字体加粗 */
 }
 .carouselItemSummary {

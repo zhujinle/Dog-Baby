@@ -3,7 +3,7 @@
         <div class="news-header">
             <div class="content text-center" style="background-image: url(https://s2.loli.net/2024/01/04/4ZM5H2JSQ8leKNf.png);">
                 <div class="introduce animated fadeInUp">
-                    <div class="title">Dog-Baby</div>
+                    <div class="title">Dog-Baby新闻</div>
                     <div class="mate">好好学习，天天向上</div>
                 </div>
             </div>
@@ -15,14 +15,12 @@
 			<el-breadcrumb-item>全部新闻</el-breadcrumb-item>
 		</el-breadcrumb>
 		<div>
-  
         <!--渲染位置-->
-            <markdown :source=markdown style="margin: 90px;"></markdown>
-
-        </div>
+      <markdown :source=markdown style="margin: 90px;"></markdown>
+    </div>
         <!-- 评论 -->
 		<el-card class="box-card">
-            <!-- 评论列表 -->
+      <!-- 评论列表 -->
 			<template>
 				<el-table :data="commetList" stripe style="width: 100%">
 					<el-table-column prop="cid" label="评论ID" width="70"></el-table-column>
