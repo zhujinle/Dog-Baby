@@ -1,5 +1,5 @@
 # Dog-Baby
-Wzu Java Web 期末作业 - 新闻发布管理平台
+Java Web 期末作业 - 新闻发布管理平台
 
 开源于Github [zhujinle/Dog-Baby](https://github.com/zhujinle/Dog-Baby)
 
